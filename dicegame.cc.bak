@@ -1,0 +1,45 @@
+#include <iostream>
+#include <stdio.h>
+
+using namespace std;
+
+double expected_val(int a, int b){
+    int sides = b - a + 1;
+    double prob = 1.0 / sides;
+    double ex;
+    for (int i = a; i <= b; i++){
+        ex += prob*i;
+    }
+    return ex;
+}
+
+int main(){
+    int gunnar[4];
+    int emma[4];
+
+    for (int i = 0; i < 4; i++){
+        scanf("%d", &gunnar[i]); 
+    }
+
+    for (int i = 0; i < 4; i++){ 
+        scanf("%d", &emma[i]); 
+    }
+
+    double EXG1 = expected_val(gunnar[0], gunnar[1]);
+    double EXG2 = expected_val(gunnar[2], gunnar[3]);
+
+    double EXE1 = expected_val(emma[0], emma[1]);
+    double EXE2 = expected_val(emma[2], emma[3]);
+
+    EXG2 -= EXG1;
+    EXE1 = EXE1 - EXG2 - EXG1;
+    EXE2 = EXE2 - EXE1 - EXG2 - EXG1;
+
+    double result = EXG1 + EXG2 - EXE1 - EXE2;
+
+    if (result > 0) cout << "Gunnar" << endl;
+    else if (result == 0.0) cout << "Tie" << endl;
+    else cout << "Emma" << endl;
+
+    return 0;
+}
