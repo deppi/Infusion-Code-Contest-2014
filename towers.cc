@@ -24,7 +24,7 @@ int num_chops(vector<int> towers){
     for (int i = 0; i < towers.size(); i++){
         chops_vec.push_back(towers[i] + towers.size() - i - 1);
     }
-    return find_min(chops_vec);
+    return my_min(find_min(chops_vec), towers.size());
 }
 
 int main(){
