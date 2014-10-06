@@ -23,8 +23,11 @@ int num_chops(vector<int> towers){
     vector<int> chops_vec;
     for (int i = 0; i < towers.size(); i++){
         chops_vec.push_back(towers[i] + towers.size() - i - 1);
+        // do towers[i] horizontal chops + towers.size() - i - 1 vertical chops. add to vector
+        // take min of all of these to find answer
     }
-    return my_min(find_min(chops_vec), towers.size());
+    return my_min(find_min(chops_vec), towers.size()); // take min of this because the vector doesnt
+    // include doing all vertical chops
 }
 
 int main(){
