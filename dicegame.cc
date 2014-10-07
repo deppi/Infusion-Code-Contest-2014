@@ -40,6 +40,9 @@ int main(){
     scanf("%d", &a4);
     scanf("%d", &b4);
 
+    // this solution works because you are comparing their
+    // expected value * 2. You avoid division this way
+    // so it is a much preferred solution.
     int result = evenBetter(a1, b1) + evenBetter(a2, b2);
     int result2 = evenBetter(a3, b3) + evenBetter(a4, b4);
 
